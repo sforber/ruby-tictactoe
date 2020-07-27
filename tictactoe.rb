@@ -19,7 +19,7 @@ class PlayGame
             end
             self.placePiece(pos, turn)
             self.updateDisplay
-            if self.winCheck?(pos, turn)
+            if self.winCheck?
                 @gameEnd = true
             end
             @turn += 1
@@ -51,7 +51,7 @@ class PlayGame
         end
     end
 
-    def winCheck?(pos, turn)
+    def winCheck?
         if @places[0] == @places[1] && @places[0] == @places[2] && @places[0] != ''
             return true
         elsif @places[3] == @places[4] && @places[3] == @places[5] && @places[3] != ''
