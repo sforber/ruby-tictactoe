@@ -1,7 +1,6 @@
 STDOUT.sync = true
 
 class PlayGame
-    attr_accessor :board, :turn, :gameEnd
     def initialize
         @places = ['','','','','','','','','']
         @gameEnd = false
@@ -17,14 +16,15 @@ class PlayGame
                 puts "Enter a valid position: "
                 pos = gets.to_i - 1
             end
-            self.placePiece(pos, turn)
+            self.placePiece(pos, @turn)
             self.updateDisplay
             if self.winCheck?
                 @gameEnd = true
+            else
+                @turn += 1
             end
-            @turn += 1
         end
-        puts "\n\nPlayer " + ((@turn + 1) % 2 + 1).to_s + " wins!"
+        puts "\n\nPlayer " + (@turn % 2 + 1).to_s + " wins!"
     end
 
     def updateDisplay
@@ -64,9 +64,9 @@ class PlayGame
             return true
         elsif @places[2] == @places[5] && @places[2] == @places[8] && @places[2] != ''
             return true
-        elsif @places[0] == @places[5] && @places[0] == @places[8] && @places[0] != ''
+        elsif @places[0] == @places[4] && @places[0] == @places[8] && @places[0] != ''
             return true
-        elsif @places[2] == @places[5] && @places[2] == @places[8] && @places[2] != ''
+        elsif @places[2] == @places[4] && @places[2] == @places[6] && @places[2] != ''
             return true 
         end
     end
