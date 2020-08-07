@@ -1,1 +1,1 @@
-Command line tic-tac-toe game made with ruby for The Odin Project.
+Command line tic-tac-toe game made with ruby for The Odin Project. 

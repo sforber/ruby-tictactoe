@@ -1,6 +1,5 @@
-STDOUT.sync = true
-
-class PlayGame
+class Game
+    attr_accessor :places
     def initialize
         @places = ['','','','','','','','','']
         @gameEnd = false
@@ -44,7 +43,7 @@ class PlayGame
     end
 
     def validPosition?(pos)
-        if @places[pos.to_i] == ''
+        if pos >= 0 && pos <= 9 && @places[pos.to_i] == ''
             return true
         else
             return false
@@ -71,6 +70,3 @@ class PlayGame
         end
     end
 end
-
-game = PlayGame.new
-game.mainLoop
